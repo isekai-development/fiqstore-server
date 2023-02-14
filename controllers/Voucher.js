@@ -54,16 +54,16 @@ class Voucher {
       });
       return res.json(response);
     } catch (error) {
-      return res.json(error);
+      return res.json(error.message);
     }
   }
   static async remove(req, res) {
     try {
-      const { id } = await req.body;
+      const { id } = await req.query;
       const response = await VoucherModel.deleteOne({ _id: id });
       return res.json(response);
     } catch (error) {
-      return res.json(error);
+      return res.json(error.message);
     }
   }
 }
